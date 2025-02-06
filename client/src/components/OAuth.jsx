@@ -40,11 +40,11 @@ export default function OAuth() {
 
   return (
     /* button for google login */
-    <div>
+    <div className="flex justify-center">
       <button
         type='button'
         onClick={handleGoogleLogin}
-        className='w-full my-3 bg-green-400 text-white py-2 px-4 rounded-md hover:opacity-95 hover:bg-green-600 focus:outline-nonerounded-full'
+        className=' w-[320px] my-3 bg-[#EEF1F0] text-black rounded-3xl py-2 px-4 hover:opacity-95 hover:bg-[#F7F9FA] focus:outline-nonerounded-full'
       >
         Sign In with Google
       </button>
