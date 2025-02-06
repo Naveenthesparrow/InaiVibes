@@ -11,6 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 import OAuth from "../components/OAuth";
 import Logo from '../assets/logo.png'
 import Music1 from "../assets/Music1.svg"
+import Music2 from '../assets/Music.png'
+import Music3 from '../assets/Music3.svg'
+import S1 from '../assets/S1.svg'
 
 export default function SignIn() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -64,24 +67,41 @@ export default function SignIn() {
           <div className="absolute top-0 left-0 w-full h-full flex z-10">
 
             <img src={Music1} className="h-[200px] relative m-4 mt-[60px] "  alt="" />
+            <img src={Music3} className="h-[500px] absolute top-[400px] right-[0px] " alt="" />
+            <img src={S1} className="absolute left-[400px] top-[380px] h-[230px] w-auto " alt="" />
+            <img src={S1} className="absolute left-[407px] top-[549px] h-[230px] w-auto scale-x-[-1]" alt="" />
             <div className="absolute left-1/2 -translate-x-1/2 flex justify-center w-full">
-              <h1 className="text-[11rem] font-bold mt-[140px] tracking-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 text-transparent bg-clip-text">
+              <h1 className="text-[10rem] font-bold mt-[110px] tracking-tight bg-gradient-to-r from-white via-gray-300 to-gray-400 text-transparent bg-clip-text">
                 InaiVibe
               </h1> 
             </div>
 
-            <div>
-              <div>
-                <h2 className="text-white">Share Whatever you want to share</h2>
+            <div className="mt-[350px]">
+              <div className="flex space-x-44">
+                <div className="border-gray-100 rounded-2xl bg-gradient-to-b from-[#666666] to-black border-1 shadow-2xl w-[240px] p-5 ">
+                  <img className="px-2" src={Music2} alt="" />
+                  <h2 className="text-white mt-10  px-2 mb-2 text-[1.5rem] font-light  ">Share Whatever <br /> you want to share</h2>
+                </div>
+
+                <div className="border-gray-100 relative top-32 rounded-2xl bg-gradient-to-b from-[#666666] to-black border-1 w-[240px] shadow-2xl  p-5 ">
+                  <img className="px-2" src={Music2} alt="" />
+                  <h2 className="text-white mt-10  px-2 mb-2 text-[1.5rem] font-light  ">Share Whatever <br /> you want to share</h2>
+                </div>
               </div>
+              <div className="flex relative top-24  ">
+                <div className="border-gray-100 rounded-2xl z-10 bg-gradient-to-b from-[#666666] to-black border-1 shadow-2xl w-[240px]  p-5 ">
+                    <img className="px-2" src={Music2} alt="" />
+                    <h2 className="text-white mt-8  px-2 mb-2 text-[1.5rem] font-light  ">Share Whatever <br /> you want to share</h2>
+                </div>
+                
+              </div>
+              
             </div>
-
-
-
+            
           </div>
 
           {/* Grid */}
-          <div className="w-full h-full grid grid-cols-5 grid-rows-5 bg-gradient-to-tr from-[#2A2A2A]  to-[#000]">
+          <div className="w-full h-full grid grid-cols-5 grid-rows-5 bg-gradient-to-tr from-[#3a3a3a] via-[#171717]  to-[#000]">
             {Array.from({ length: 25 }).map((_, i) => (
               <div key={i} className="border-[0.1px] border-[#ffffff52] " />
             ))}
