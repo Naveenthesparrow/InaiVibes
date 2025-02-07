@@ -8,9 +8,6 @@ import { websocket } from "./ws/websocket.js"; // Import WebSocket properly
 
 dotenv.config();
 
-// Initialize WebSocket
-websocket();
-
 mongoose
   .connect(process.env.MONGO_DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
@@ -28,9 +25,12 @@ app.use(cookieParser());
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 
-app.listen(3000, () => {
+const server = app.listen(3000, () => {
   console.log("Server is listening on port 3000 !");
 });
+
+// Initialize WebSocket and pass the server instance
+websocket(server);
 
 // Middleware for error handling (should be last)
 app.use((err, req, res, next) => {
