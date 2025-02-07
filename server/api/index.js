@@ -21,12 +21,11 @@ mongoose
 const app = express();
 const server = createServer(app); // Use http server for WebSocket
     console.log("Connected to MongoDB!")
-  })
   .catch((err) => {
     console.log("Failed to connect to MongoDB!", err)
   })
 
-const app = express()
+
 const httpServer = createServer(app)
 const io = new Server(httpServer, {
   cors: {
