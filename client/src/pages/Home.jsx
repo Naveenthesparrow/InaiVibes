@@ -26,7 +26,7 @@ export default function Home() {
                     Watch videos seamlessly with your friends <br /> in perfect sync, no matter where they are. Enjoy <br /> shared viewing experiences with interactive <br /> controls and real-time reactions.
                   </h3>
                   <div className=" flex mt-[30px] space-x-4 ">
-                    <Link className="text-black bg-white text-[1.2rem] p-2 px-5 rounded-3xl">
+                    <Link to='/room' className="text-black bg-white text-[1.2rem] p-2 px-5 rounded-3xl">
                       Create Room →
                     </Link>
                     <Link className=" text-white relative top-2 text-[1.2rem]">About </Link>
