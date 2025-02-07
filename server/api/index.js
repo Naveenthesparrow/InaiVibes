@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/user.route.js";
 import authRoutes from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
+import { websocket } from "./ws/websocket.js"; // Import WebSocket properly
 
 dotenv.config();
 
@@ -29,14 +30,17 @@ const io = new Server(httpServer, {
 app.use(express.json());
 app.use(cookieParser());
 
-app.listen(3000, () => {
-  console.log("Server is listening on port 3000 !");
-});
-
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 
-//middleware
+const server = app.listen(3000, () => {
+  console.log("Server is listening on port 3000 !");
+});
+
+// Initialize WebSocket and pass the server instance
+websocket(server);
+
+// Middleware for error handling (should be last)
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500
   const message = err.message || "Internal Server Error"
