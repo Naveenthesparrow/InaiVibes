@@ -33,7 +33,7 @@ function UserDetails() {
 
     return (
         <div>
-            <div className=''>
+            <div className='mt-2'>
                 <div className='flex items-center ml-20'>
                     {host && (
                         <div className='relative left-[30px]'>
@@ -51,44 +51,44 @@ function UserDetails() {
                     <p className='text-[#98A1B8] text-[1rem]'>{usersCount()} Members</p>
                 </div>
             </div>
-            <div className="mt-1 ml-4">
-                <div className="w-[320px] max-w-md p-4">
-                <div className="space-y-3">
-    {participants.map((participant) => (
-        <div 
-            key={participant.id} 
-            className="flex items-center justify-between rounded-2xl p-1 group hover:bg-gray-800 transition"
-        >
-            <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10">
-                    <img 
-                        src={participant.avatar || "/placeholder.svg"} 
-                        alt={participant.name} 
-                        className="rounded-full object-cover w-full h-full" 
-                    />
-                </div>
-                <div>
-                    <h3 className="text-black group-hover:text-white font-semibold transition">
-                        {participant.name}
-                    </h3>
-                    <p className="text-gray-400 text-sm group-hover:text-gray-300 transition">
-                        {participant.role}
-                    </p>
-                </div>
-            </div>
-            <button
-                className={`px-2  rounded-full text-sm font-medium transition
-                    ${participant.isHost 
-                        ? 'bg-black text-white border border-white/20 group-hover:bg-white group-hover:text-black' 
-                        : 'bg-black text-white border border-white/20 group-hover:bg-white group-hover:text-black'
-                    }`}
-            >
-                {participant.isHost ? 'Exit' : 'Remove'}
-            </button>
-        </div>
-    ))}
-</div>
-
+            <div className="mt-5 ml-4">
+                <div className="w-[320px]  max-w-md p-4">
+                    {/* Conditional scrolling */}
+                    <div className={`space-y-2 ${participants.length > 5 ? "max-h-[300px] rounded-2xl overflow-y-auto" : ""}`}>
+                        {participants.map((participant) => (
+                            <div 
+                                key={participant.id} 
+                                className="flex items-center justify-between rounded-2xl p-1 group hover:bg-gray-800 transition"
+                            >
+                                <div className="flex items-center gap-3">
+                                    <div className="relative w-10 h-10">
+                                        <img 
+                                            src={participant.avatar || "/placeholder.svg"} 
+                                            alt={participant.name} 
+                                            className="rounded-full object-cover w-full h-full" 
+                                        />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-black group-hover:text-white font-semibold transition">
+                                            {participant.name}
+                                        </h3>
+                                        <p className="text-gray-400 text-sm group-hover:text-gray-300 transition">
+                                            {participant.role}
+                                        </p>
+                                    </div>
+                                </div>
+                                <button
+                                    className={`px-2  rounded-full text-sm font-medium transition
+                                        ${participant.isHost 
+                                            ? 'bg-black text-white border border-white/20 group-hover:bg-white group-hover:text-black' 
+                                            : 'bg-black text-white border border-white/20 group-hover:bg-white group-hover:text-black'
+                                        }`}
+                                >
+                                    {participant.isHost ? 'Exit Room' : 'Remove'}
+                                </button>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
