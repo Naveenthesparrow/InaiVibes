@@ -41,7 +41,7 @@ function VideoSearch({ onVideoSelect }) {
                     type="submit"
                     className="bg-black text-white rounded-[550px]  px-3 py-3 hover:bg-gray-800 transition-colors flex items-center"
                 >
-                    <Search className="w-5 h-5 mr-1  " />
+                    <Search className="w-5 h-5   " />
                 </button>
             </form>
 
@@ -49,17 +49,17 @@ function VideoSearch({ onVideoSelect }) {
             {loading && <p className="text-center text-gray-500 mt-2">Searching...</p>}
 
             {/* Search Results */}
-            <ul className="mt-4">
+            <ul className="mt-6 space-y-2 ">
                 {results.map((video) => (
                     <li
                         key={video.id.videoId}
-                        className="flex items-center gap-3 p-2 border-b cursor-pointer hover:bg-gray-100 transition"
+                        className="flex items-center gap-3 px-2 py-1 border-b cursor-pointer bg-white rounded-2xl hover:bg-gray-100 transition"
                         onClick={() => onVideoSelect(video.id.videoId)}
                     >
                         <img
                             src={video.snippet.thumbnails.default.url}
                             alt={video.snippet.title}
-                            className="w-16 h-16 rounded-md"
+                            className="w-16 h-10 rounded-md"
                         />
                         <div>
                             <h3 className="text-sm font-semibold">{video.snippet.title}</h3>
