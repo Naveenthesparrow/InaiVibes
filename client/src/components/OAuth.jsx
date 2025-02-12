@@ -48,7 +48,7 @@ export default function OAuth() {
       <button
         type="button"
         onClick={handleGoogleLogin}
-        className="w-[320px] my-3 bg-[#EEF1F0] text-black rounded-3xl py-2 px-4 hover:opacity-95 hover:bg-[#F7F9FA] focus:outline-none rounded-full"
+        className="w-[320px] my-3 bg-[#EEF1F0] text-black  py-2 px-4 hover:opacity-95 hover:bg-[#F7F9FA] focus:outline-none rounded-full"
       >
         Sign In with Google
       </button>
