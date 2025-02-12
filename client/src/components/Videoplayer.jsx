@@ -64,7 +64,7 @@ function YouTubePlayer({ videoId }) {
                             <button
                                 className="p-3 bg-black rounded-full text-white hover:bg-gray-800 transition-colors"
                                 aria-label="Rewind 10 seconds"
-                                onClick={() => seekVideo(-10)}
+                                onClick={() => seekVideo()}
                             >
                                 <Rewind className="w-3 h-3" />
                             </button>
@@ -94,7 +94,7 @@ function YouTubePlayer({ videoId }) {
                             <button
                                 className="p-3 bg-black rounded-full text-white hover:bg-gray-800 transition-colors"
                                 aria-label="Forward 10 seconds"
-                                onClick={() => seekVideo(10)}
+                                onClick={() => seekVideo()}
                             >
                                 <FastForward className="w-3 h-3" />
                             </button>

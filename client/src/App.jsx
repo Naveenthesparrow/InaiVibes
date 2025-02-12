@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import PrivateRoute from "./components/PrivateRoute";
 import Room from './pages/Room'
 import SearchBox from './components/serachbox'
+import ChatApp from "./components/chatApp";
 
 export default function App() {
   return (
@@ -22,7 +23,7 @@ export default function App() {
           <Route path='/profile' element={<Profile />} />
         </Route>
         <Route path='/room' element={<Room />} />
-        <Route path='/search' element={<SearchBox />} />
+        <Route path='/chatapp' element={<ChatApp />} />
       </Routes>
     </BrowserRouter>
   );
