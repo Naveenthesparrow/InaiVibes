@@ -6,6 +6,7 @@ import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import { app, server } from "./ws/socket.js";
 
 dotenv.config();
 
@@ -18,7 +19,7 @@ mongoose
     console.log("Failed to connect to MongoDB !", err);
   });
 
-const app = express();
+// const app = express();
 
 // ✅ Move CORS setup to the top
 app.use(
@@ -40,7 +41,7 @@ app.get('/cookies',(req,res)=>{
   res.json({cookieValue:cookies})
 })
 
-app.listen(3000, (req,res) => {
+server.listen(3000, (req,res) => {
   console.log("Server is listening on port 3000 !");
   
 });
