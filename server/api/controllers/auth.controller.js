@@ -32,10 +32,12 @@ export const signin = async (req, res, next) => {
     const { password: hashedPassword, ...rest } = validUser._doc;
     const expiryDate = new Date(Date.now() + 3600000); // cookie for one hour
 
-    res
-      .cookie("access_token", token, { httpOnly: true, expires: expiryDate })
-      .status(200)
-      .json(rest);
+    res.cookie("accessToken", token, {
+      httpOnly: true, // ✅ Prevents client-side access
+      secure: false, // ✅ Set to `true` in production (HTTPS)
+      sameSite: "Lax", // ✅ Use "None" if frontend and backend are on different domains
+      expires: new Date(Date.now() + 3600000), // ✅ 1-hour expiry
+    });    
   } catch (error) {
     next(error);
   }
@@ -52,7 +54,7 @@ export const google = async (req, res, next) => {
       const expiryDate = new Date(Date.now() + 3600000); // cookie for one hour
 
       res
-        .cookie("access_token", token, {
+        .cookie("accessToken", token, {
           httpOnly: true,
           expires: expiryDate,
         })
@@ -76,7 +78,7 @@ export const google = async (req, res, next) => {
       const { password: hashedPassword2, ...rest } = newUser._doc;
       const expiryDate = new Date(Date.now() + 3600000); // cookie for one hour
       res
-        .cookie("access_token", token, {
+        .cookie("accessToken", token, {
           httpOnly: true,
           expires: expiryDate,
         })
@@ -88,5 +90,5 @@ export const google = async (req, res, next) => {
   }
 };
 export const signout = (req, res) => {
-  res.clearCookie('access_token').status(200).json('Signout success!');
+  res.clearCookie('accessToken').status(200).json('Signout success!');
 };
