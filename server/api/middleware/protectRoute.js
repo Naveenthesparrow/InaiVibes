@@ -6,7 +6,8 @@ const protectRoute = async (req, res, next) => {
         console.log("Cookies:", req.cookies); 
         console.log("headers:", req.headers); 
 
-        const token = req.cookies.accessToken; 
+        const token = req.headers["acesstoken"]; 
+        console.log(token)
         if (!token) {
             return res.status(401).json({ error: "Unauthorized, token not found in cookies" });
         }
